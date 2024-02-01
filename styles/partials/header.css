@@ -1,0 +1,33 @@
+.header-banner {
+    background-image: url('/images/bg-banner.png');
+    background-size: cover;
+    /* height: 700px; */
+    width: 100%;
+
+    border-bottom-left-radius: 70% 40px;
+    border-bottom-right-radius: 70% 40px;
+}
+
+.header-menu {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    color: #FFFFFF;
+
+    position: sticky;
+    top: 0
+}
+
+.header-btn-download {
+    width: 162px;
+    height: 48px;
+    padding: 12px 24px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5555px;
+
+}
+
+.header-btn-download:hover {
+    color: #FFA800 !important;
+    border: 1px solid #FFA800 !important;
+}

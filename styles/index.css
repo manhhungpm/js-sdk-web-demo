@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(partials/header.css);
+@import url(partials/footer.css);
+@import url(partials/home.css);
+@import url(partials/doluong.css);
+
+/* Global */
+body {
+    font-family: 'SVN-Gilroy';
+}
+
+@font-face {
+    font-family: 'SVN-Gilroy';
+    src: url('../public/fonts/SVNGilroy\ Light.otf');
+}
+
+.ant-input {
+    font-family: 'SVN-Gilroy';
+}

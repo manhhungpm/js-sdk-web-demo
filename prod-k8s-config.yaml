@@ -1,0 +1,196 @@
+---
+apiVersion: "v1"
+kind: "ConfigMap"
+metadata:
+  name: "landingpage-website-config"
+  namespace: "mmp-service-prod"
+  labels:
+    app: "landingpage-website"
+data:
+  "ENVIRONMENT": "PRODUCTION"
+  "VERSION": "1.0.0"
+  "PORT": "3000"
+  "SOCKET_PORT": ""
+  "SERVICE_AUTH": "http://auth-service:9090/"
+  "SERVICE_EVENT": "http://event-service:9090/"
+  "SERVICE_EVENT_POSTGRES": "http://event-service-jobs:9090/"
+  "SERVICE_PARTNER_ADMIN_WEBSITE": "http://partner-admin-website-service:9090/"
+  "SERVICE_FRAUD": "http://fraud-detection-service:9090/"
+  "FACEBOOK_CRON": "http://facebook-crons:9090/"
+  "SERVICE_PUSH_NOTIFICATION": "http://mmp-push-notification-service:9090/"
+  "REDIS_QUEUE_ADDRESS": "prod-mmp-redis-001.prod-mmp-redis.t1dn3a.apse1.cache.amazonaws.com"
+  "REDIS_QUEUE_PORT": "6379"
+  "REDIS_QUEUE_DB": "0"
+  "REDIS_QUEUE_FRAUD_DB": "1"
+  "SERVICE_GATEWAY": "http://api-gateway:9090/"
+  "API_URL": "http://api-gateway:9090/public/dynamic-link/log-website"
+  "DB_HOST": "prod-mmp-postgres.cu6liptoq8sy.ap-southeast-1.rds.amazonaws.com"
+  "DB_DEFAULT": "lynkid_auth"
+  "DB_DIALECT": "postgres"
+  "DB_PORT": "5432"
+  "DATE_ONLY_FORMAT": "DD/MM/YYYY"
+  "DATE_TIME_FORMAT": "DD/MM/YYYY HH:mm:ss"
+  "SHA_256": "IJODNVU@OJIFOISJF"
+  "API_GATEWAY_URL": "http://api-gateway:9090"
+  "SHORT_LINK": "https://s.airflex.io"
+  "LONG_LINK": ""
+  "ASDM_LINK": "https://link.airflex.io"
+  "S3_BUCKET_NAME": "prod-mmp-image-notification"
+  "S3_REGION": "ap-southeast-1"
+  "S3_BUCKET_URL_NAME": "prod-mmp-image-notification"
+  "S3_PUBLIC_URL": "prod-mmp-image-notification.s3.ap-southeast-1.amazonaws.com"
+  "DB_SEC_HOST": "prod-mmp-postgres.cu6liptoq8sy.ap-southeast-1.rds.amazonaws.com"
+  "DB_SEC_PORT": "5432"
+  "DB_SEC_NAME": "fraud"
+  "REACT_APP_BASE_URL": "http://api-gateway:9090"
+  "REACT_APP_API_TIMEOUT": "60000"
+  "ELASTIC_SEARCH_ADDRESS": "https://search-prod-mmp-aos-mw333k2ddbudl4ou3d3qz2gyci.ap-southeast-1.es.amazonaws.com"
+  "ELASTIC_SEARCH_INDEX": "linkid-mmp"
+  "SERVICE_SEC_FRAUD_BACKEND": "http://fraud-backend:9090"
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "landingpage-website"
+  namespace: "mmp-service-prod"
+  labels:
+    app: "landingpage-website"
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: "landingpage-website"
+  template:
+    metadata:
+      labels:
+        app: "landingpage-website"
+    spec:
+      serviceAccountName: aws-s3-fullaccess
+      containers:
+        - name: "landingpage-website-container"
+          image: "067789650446.dkr.ecr.ap-southeast-1.amazonaws.com/landingpage-website:prod"
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "0.5G"
+              cpu:    "0.5"
+            limits:
+              memory: "0.5G"
+              cpu:    "0.5"
+          env:
+          - name: TZ
+            value: Asia/Ho_Chi_Minh
+          - name: "REDIS_QUEUE_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: REDIS_PWD
+          - name: "DB_USERNAME"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: POSTGRES_USER
+          - name: "DB_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: POSTGRES_PWD
+          - name: "DB_SEC_USERNAME"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: POSTGRES_SEC_USER
+          - name: "DB_SEC_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: POSTGRES_SEC_PWD
+          - name: "ELASTIC_SEARCH_USERNAME"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: AOS_USER
+          - name: "ELASTIC_SEARCH_PASSWORD"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-sec"
+                key: AOS_PWD
+          - name: "JWT_KEY_PRIVATE_ROUTE"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-jwt"
+                key: JWT_KEY_PRIVATE_ROUTE
+          - name: "JWT_KEY_PARTNER"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-jwt"
+                key: JWT_KEY_PARTNER
+          - name: "JWT_INTERNAL"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-jwt"
+                key: JWT_INTERNAL
+          - name: "JWT_KEY_ADMIN"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-jwt"
+                key: JWT_KEY_ADMIN
+          - name: "JWT_KEY_INTERNAL"
+            valueFrom:
+              secretKeyRef:
+                name: "mmp-prod-jwt"
+                key: JWT_KEY_INTERNAL
+          envFrom:
+          - configMapRef:
+              name: landingpage-website-config
+---
+apiVersion: "autoscaling/v2"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "landingpage-website-hpa"
+  namespace: "mmp-service-prod"
+  labels:
+    app: "landingpage-website"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "landingpage-website"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+    - type: "Resource"
+      resource:
+        name: "memory"
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: "Resource"
+      resource:
+        name: "cpu"
+        target:
+          type: Utilization
+          averageUtilization: 80
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /
+  name: "landingpage-website"
+  namespace: "mmp-service-prod"
+  labels:
+    app: "landingpage-website"
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: "TCP"
+  type: "NodePort"
+  selector:
+    app: "landingpage-website"

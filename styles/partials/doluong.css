@@ -1,0 +1,54 @@
+.dl-header-tag {
+    width: 104px;
+    height: 31px;
+    background: rgba(255, 168, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFA800;
+}
+
+.dl-header-tag-coming-soon {
+    width: 104px;
+    height: 31px;
+    background: rgba(52, 181, 58, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #34B53A;
+}
+
+.dl-header-title {
+    font-style: normal;
+    font-weight: 700;
+    /* font-size: 48px; */
+    line-height: 120%;
+    color: #FFFFFF;
+}
+
+.dl-header-content {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+@media (max-width: 500px) {
+
+    .dl-header-tag {
+        display: none
+    }
+
+    .dl-header-tag-coming-soon {
+        display: none
+    }
+}
