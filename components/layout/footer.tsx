@@ -1,18 +1,33 @@
 import Container from "../container";
 import { EXAMPLE_PATH } from "../../lib/constants";
-import { Button, Col, Divider, Form, Input, Row } from "antd";
+import { Button, Col, Divider, Form, Input, Row, Select, notification } from "antd";
 
 const { Item } = Form;
 const Footer = () => {
   const [form] = Form.useForm();
 
+  const [api, contextHolder] = notification.useNotification();
+
   const clickSubmitButton = (form) => {
     (window as any).AirflexJS.logEvent("web_demo_form_feedback", form);
+
+    api["success"]({
+      message: "Thông báo",
+      description: "Cảm ơn bạn, bạn đã gửi thành công",
+    });
+  };
+
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+    (window as any).AirflexJS.logEvent("web_demo_form_feedback_city", {
+      city: value,
+    });
   };
 
   return (
     <div>
       <footer className="footer-banner">
+        {contextHolder}
         <Container>
           <div className="pt-20 pb-8 flex justify-center items-center">
             <p className="text-center footer-text-survey">
@@ -25,6 +40,20 @@ const Footer = () => {
               <Form layout="vertical" className="pt-8 px-8" form={form} onFinish={clickSubmitButton}>
                 <Item name={"name"}>
                   <Input placeholder={"Họ và tên"} className="footer-input-survey"></Input>
+                </Item>
+
+                <Item name={"city"}>
+                  <Select
+                    style={{
+                      width: "100%",
+                    }}
+                    onChange={handleChange}
+                    options={[
+                      { value: "hanoi", label: "Hà Nội" },
+                      { value: "dn", label: "Đà Nẵng" },
+                      { value: "hochiminh", label: "Hồ Chí Minh" },
+                    ]}
+                  />
                 </Item>
 
                 <Row>
