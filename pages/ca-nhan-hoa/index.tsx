@@ -16,7 +16,7 @@ export default function CaNhanHoa() {
             </div>
             <p className="dl-header-title md:text-5xl text-3xl pt-4">Cá nhân hóa và xây dựng trải nghiệm khách hàng</p>
             <p className="dl-header-content pt-4">
-              Thông qua việc thu thập, phân tích dữ liệu đa nền tảng LinkID sẽ giúp bạn xây dựng các trải nghiệm cá nhân
+              Thông qua việc thu thập, phân tích dữ liệu đa nền tảng xxxx sẽ giúp bạn xây dựng các trải nghiệm cá nhân
               hóa cho người dùng liên tục theo thời gian thực
             </p>
             <div className="pt-10">
@@ -59,7 +59,7 @@ export default function CaNhanHoa() {
             >
               <p className="home-part-title">Thu thập dữ liệu khách hàng</p>
               <p className="home-part-content">
-                LinkID sẽ thu thập dữ liệu trên mọi điểm chạm của khách hàng để xây dựng hồ sơ định danh dành cho từng
+                xxxx sẽ thu thập dữ liệu trên mọi điểm chạm của khách hàng để xây dựng hồ sơ định danh dành cho từng
                 khách hàng
               </p>
             </Col>
@@ -76,7 +76,7 @@ export default function CaNhanHoa() {
             >
               <p className="home-part-title">Phân tích và dự đoán</p>
               <p className="home-part-content">
-                Dựa trên dữ liệu khách hàng, LinkID sẽ đưa ra phân tích và dự đoán với các hành vi để đưa ra các dự đoán
+                Dựa trên dữ liệu khách hàng, xxxx sẽ đưa ra phân tích và dự đoán với các hành vi để đưa ra các dự đoán
                 về hành vi tiếp theo trong quá trình sử dụng của người dùng
               </p>
             </Col>

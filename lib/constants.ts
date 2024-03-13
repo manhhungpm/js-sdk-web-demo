@@ -136,19 +136,19 @@ export const MENU = [
     child: [],
     route: "bang-gia",
   },
+  // {
+  //   key: "lh",
+  //   title: "Liên hệ",
+  //   haveSubMenu: false,
+  //   child: [],
+  //   route: "lien-he",
+  // },
   {
-    key: "lh",
-    title: "Liên hệ",
-    haveSubMenu: false,
-    child: [],
-    route: "lien-he",
-  },
-  {
-    key: "https://developer.airflex.io/",
+    key: "https://google.com/",
     title: "Dành cho nhà phát triển",
     haveSubMenu: false,
     child: [],
-    route: "https://developer.airflex.io/",
+    route: "https://google.com/",
   },
 ];
 
@@ -157,7 +157,7 @@ export const CONTACTS = [
     key: "mail",
     icon: "/images/lienhe/mail.svg",
     title: "Email hỗ trợ",
-    info: "support@linkid.vn",
+    info: "support@xxx.vn",
     textLink: "Gửi email",
     hasLinkIcon: true,
   },

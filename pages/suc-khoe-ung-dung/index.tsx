@@ -77,9 +77,9 @@ export default function Suckhoeungdung() {
             >
               <p className="home-part-title">Theo dõi hành trình người dùng</p>
               <p className="home-part-content">
-                LinkID cho phép bạn theo dõi hành trình của người dùng trong ứng dụng dành cho thiết bị di động của
-                mình, từ lượt truy cập đầu tiên đến chuyển đổi giúp bạn tối ưu hóa trải nghiệm người dùng và tăng tỷ lệ
-                chuyển đổi.
+                xxxx cho phép bạn theo dõi hành trình của người dùng trong ứng dụng dành cho thiết bị di động của mình,
+                từ lượt truy cập đầu tiên đến chuyển đổi giúp bạn tối ưu hóa trải nghiệm người dùng và tăng tỷ lệ chuyển
+                đổi.
               </p>
             </Col>
 

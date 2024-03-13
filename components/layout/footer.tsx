@@ -86,11 +86,11 @@ const Footer = () => {
 
       <div className="flex flex-col justify-center items-center">
         <div className="pt-20">
-          <img src="/images/logo-linkid-border.svg" alt="logo-border"></img>
+          <img src="/images/airflex_favicon.png" alt="logo-border"></img>
         </div>
 
         <div className="pt-4">
-          <p>Công ty Cổ phần Dịch vụ và Công nghệ LINKID</p>
+          <p>Công ty Cổ phần Dịch vụ và Công nghệ xxxx</p>
         </div>
 
         <div className="pt-8" style={{ width: "90%" }}>
@@ -107,9 +107,7 @@ const Footer = () => {
               <div>
                 <img src="/images/icon-location.svg" width={40} />
               </div>
-              <div className="footer-text-info">
-                Phòng 509, Tầng 5 Số 362 Phố Huế, P. Phố Huế, Q. Hai Bà Trưng, Tp. Hà Nội
-              </div>
+              <div className="footer-text-info">odio pellentesque diam volutpat commodo sed egestas egestas</div>
             </Col>
 
             <Col
@@ -124,7 +122,7 @@ const Footer = () => {
               <div>
                 <img src="/images/icon-call.svg" width={20} height={20} />
               </div>
-              <div className="footer-text-info">1900 6368 35</div>
+              <div className="footer-text-info">12312</div>
             </Col>
 
             <Col
@@ -139,7 +137,7 @@ const Footer = () => {
               <div>
                 <img src="/images/icon-sms.svg" width={20} height={20} />
               </div>
-              <div className="footer-text-info">support@linkid.vn</div>
+              <div className="footer-text-info">support@xxx.vn</div>
             </Col>
           </Row>
         </div>
@@ -149,7 +147,7 @@ const Footer = () => {
         </div>
 
         <div className="pb-7">
-          <p>Copyright © 2022. Thiết kế và phát triển bởi LynkID.</p>
+          <p>Copyright © 2022. Thiết kế và phát triển bởi xxx.</p>
         </div>
       </div>
     </div>

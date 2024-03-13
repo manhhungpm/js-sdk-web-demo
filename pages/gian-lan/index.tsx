@@ -16,8 +16,8 @@ export default function PhanTich() {
             </div>
             <p className="dl-header-title md:text-5xl text-3xl pt-4">Phòng chống gian lận</p>
             <p className="dl-header-content pt-4">
-              Bộ công cụ phòng chống gian lận của LinkID bao gồm nhiều công cụ khác nhau để phát hiện và ngăn chặn gian
-              lận quảng cáo, IP, thiết bị... cung cấp khả năng chống gian lận theo thời gian thực
+              Bộ công cụ phòng chống gian lận của xxx bao gồm nhiều công cụ khác nhau để phát hiện và ngăn chặn gian lận
+              quảng cáo, IP, thiết bị... cung cấp khả năng chống gian lận theo thời gian thực
             </p>
             <div className="pt-10">
               <button className="home-header-button-try">Dùng thử ngay</button>
@@ -59,7 +59,7 @@ export default function PhanTich() {
             >
               <p className="home-part-title">Phát hiện sự bất thường của người dùng</p>
               <p className="home-part-content">
-                Tính năng phát hiện sự bất thường của người dùng của LinkID phân tích hành vi của người dùng để xác định
+                Tính năng phát hiện sự bất thường của người dùng của xxx phân tích hành vi của người dùng để xác định
                 các mẫu bất thường, chẳng hạn như số lượng nhấp chuột lớn từ một thiết bị hoặc địa chỉ IP
               </p>
             </Col>
@@ -76,8 +76,8 @@ export default function PhanTich() {
             >
               <p className="home-part-title">Theo dõi lượt gỡ cài đặt</p>
               <p className="home-part-content">
-                Tính năng theo dõi gỡ cài đặt của LinkID có thể giúp phát hiện hành vi gian lận bằng cách xác định các
-                mẫu gỡ cài đặt bất thường, chẳng hạn như số lượng lớn lượt gỡ cài đặt từ cùng một thiết bị.
+                Tính năng theo dõi gỡ cài đặt của xxx có thể giúp phát hiện hành vi gian lận bằng cách xác định các mẫu
+                gỡ cài đặt bất thường, chẳng hạn như số lượng lớn lượt gỡ cài đặt từ cùng một thiết bị.
               </p>
             </Col>
 
@@ -113,7 +113,7 @@ export default function PhanTich() {
             >
               <p className="home-part-title">Lọc bot</p>
               <p className="home-part-content">
-                Tính năng lọc bot của LinkID cho phép bạn loại trừ lưu lượng bot khỏi dữ liệu phân tích ứng dụng di động
+                Tính năng lọc bot của xxxx cho phép bạn loại trừ lưu lượng bot khỏi dữ liệu phân tích ứng dụng di động
                 của bạn giúp cung cấp cho bạn bức tranh chính xác hơn về hành vi người dùng đang sử dụng ứng dụng
               </p>
             </Col>
