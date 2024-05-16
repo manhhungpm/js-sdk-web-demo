@@ -37,16 +37,16 @@ const Layout = ({ preview, children, headerContent, headerClassName }: Props) =>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
       {/* <script src="https://static.airflex.io/sdk/js/1.0.2/airflex.js"></script> */}
       <script src="https://d2fpeiluuf92qr.cloudfront.net/sdk/js/1.0.5/airflex.js"></script>
-      {/* <Script id="AirflexJS-analytics">
+      <Script id="AirflexJS-analytics">
         {`
          AirflexJS.create("310797", {devmode: true});
         `}
-      </Script> */}
-      <Script id="AirflexJS-analytics">
+      </Script>
+      {/* <Script id="AirflexJS-analytics">
         {`
          AirflexJS.create("ysabK94e");
         `}
-      </Script>
+      </Script> */}
 
       <Footer />
     </>
