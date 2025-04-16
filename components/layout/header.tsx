@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CHILD_MENU_GP, CHILD_MENU_SP, MENU } from "../../lib/constants";
 import { ICON_CLOSE, ICON_DOWN, ICON_MENU } from "../../lib/svgs";
 import Container from "../container";
+import { airflex } from "nextjs-airflex";
 
 type Props = {
   preview?: boolean;
@@ -59,16 +60,16 @@ const Header = ({ headerContent, preview, className = "" }: Props) => {
 
   const clickLogin = () => {
     if (typeof window !== "undefined") {
-      (window as any).AirflexJS.logEvent("web_demo_click_login");
+      airflex.logEvent("new__web_demo_click_login");
     }
   };
 
   const clickRegister = () => {
-    (window as any).AirflexJS.logEvent("web_demo_click_register");
+    airflex.logEvent("new__web_demo_click_register");
   };
 
   const clickIcon = () => {
-    (window as any).AirflexJS.logEvent("web_demo_click_fav_icon");
+    airflex.logEvent("new__web_demo_click_fav_icon");
   };
 
   return (
@@ -143,7 +144,7 @@ const Header = ({ headerContent, preview, className = "" }: Props) => {
                               href={e.route}
                               className="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 text-white"
                               onClick={() => {
-                                (window as any).AirflexJS.logEvent("web_demo_click_menu", {
+                                airflex.logEvent("new__web_demo_click_menu", {
                                   menu: e.route,
                                 });
                               }}

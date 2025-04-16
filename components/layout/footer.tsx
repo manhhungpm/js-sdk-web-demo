@@ -1,6 +1,7 @@
 import Container from "../container";
 import { EXAMPLE_PATH } from "../../lib/constants";
 import { Button, Col, Divider, Form, Input, Row, Select, notification } from "antd";
+import { airflex } from "nextjs-airflex";
 
 const { Item } = Form;
 const Footer = () => {
@@ -9,7 +10,7 @@ const Footer = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const clickSubmitButton = (form) => {
-    (window as any).AirflexJS.logEvent("web_demo_form_feedback", form);
+    airflex.logEvent("new__web_demo_form_feedback", form);
 
     api["success"]({
       message: "Thông báo",
@@ -19,7 +20,7 @@ const Footer = () => {
 
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);
-    (window as any).AirflexJS.logEvent("web_demo_form_feedback_city", {
+    airflex.logEvent("new__web_demo_form_feedback_city", {
       city: value,
     });
   };
