@@ -1,6 +1,13 @@
-import { AppProps } from 'next/app'
-import '../styles/index.css'
+import { AppProps } from "next/app";
+import "../styles/index.css";
+import { useEffect } from "react";
+import { airflex } from "nextjs-airflex";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  useEffect(() => {
+    if (airflex) {
+      airflex.create("310797", { devmode: true });
+    }
+  }, []);
+  return <Component {...pageProps} />;
 }

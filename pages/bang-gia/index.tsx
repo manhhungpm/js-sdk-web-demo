@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
 import Container from "../../components/container";
-import { Button } from "antd";
-import { RightOutlined } from "@ant-design/icons";
+import { Button, Col, Row } from "antd";
+import { AdsProductAirflex } from "../../components/ads-product-airflex";
 
 export default function Banggia() {
   const headerBanggia = (
@@ -29,17 +29,27 @@ export default function Banggia() {
           <title>MMP Platform | Bảng giá</title>
         </Head>
         <Container className="md:min-w-full lg:min-w-fit">
-          <div className="flex justify-center items-center pt-10 md:!pt-20">
-            <p className="text-center  text-[32px] md:text-[36px] lg:text-[28px]">
-              Bạn vẫn chưa biết nên lựa chọn gói dịch vụ nào?
-            </p>
-          </div>
-          <div className="flex justify-center items-center pt-8">
-            <button className="home-header-button-try">
-              <a href="/lien-he">Liên hệ ngay</a>
-            </button>
-          </div>
+          <Row gutter={16}>
+            <Col xs={24} md={16}>
+              <div className="flex justify-center items-center pt-10 md:!pt-20">
+                <p className="text-center  text-[32px] md:text-[36px] lg:text-[28px]">
+                  Bạn vẫn chưa biết nên lựa chọn gói dịch vụ nào?
+                </p>
+              </div>
+              <div className="flex justify-center items-center pt-8">
+                <button className="home-header-button-try">
+                  <a href="/lien-he">Liên hệ ngay</a>
+                </button>
+              </div>
+            </Col>
+            <Col xs={24} md={8}>
+              <div className="mx-1 my-4 w-full">
+                <AdsProductAirflex />
+              </div>
+            </Col>
+          </Row>
         </Container>
+      
       </Layout>
     </>
   );

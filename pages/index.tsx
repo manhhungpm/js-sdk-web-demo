@@ -5,6 +5,9 @@ import Layout from "../components/layout";
 import Post from "../interfaces/post";
 import { MAIN_LAYOUT_COL, UPPER_MD_ORDER_1_COL, UPPER_MD_ORDER_2_COL } from "../lib/constants";
 import { useEffect } from "react";
+import { airflex } from "nextjs-airflex";
+import { AdsBannerAirflex } from "../components/ads-banner-airflex";
+import { AdsProductAirflex } from "../components/ads-product-airflex";
 
 type Props = {
   allPosts: Post[];
@@ -14,15 +17,15 @@ export default function Index({ allPosts }: Props) {
   const [form] = Form.useForm();
 
   const downloadApp = () => {
-    (window as any).AirflexJS.logEvent("web_demo_download_app");
+    airflex.logEvent("new__web_demo_download_app");
   };
 
   const registerData = () => {
-    (window as any).AirflexJS.logEvent("web_demo_register_data");
+    airflex.logEvent("new__web_demo_register_data");
   };
 
   const bannerClick = () => {
-    (window as any).AirflexJS.logEvent("web_demo_click_banner");
+    airflex.logEvent("new__web_demo_click_banner");
   };
 
   const headerHome = (
@@ -61,7 +64,7 @@ export default function Index({ allPosts }: Props) {
   );
 
   const onFinish = (values: any) => {
-    (window as any).AirflexJS.logEvent("web_demo_input_code", values);
+    airflex.logEvent("new__web_demo_input_code", values);
   };
 
   return (
@@ -109,6 +112,7 @@ export default function Index({ allPosts }: Props) {
             </Col>
           </Row>
         </Container>
+        <AdsBannerAirflex />
       </Layout>
     </>
   );
